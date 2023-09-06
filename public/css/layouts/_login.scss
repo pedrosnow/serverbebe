@@ -1,0 +1,61 @@
+.container-login{
+    width: 100%;
+    height: 100%;
+    @include d-center;
+
+    .container_1{
+        width: 500px;
+        @include d-center-coll;
+
+        img{
+            width:80%;
+
+        }
+        .titulo{
+            font-family: 'Licorice-Regular';
+            font-weight: 600;
+            font-size: 50px;
+            text-align: center;
+            margin-top: 50px;
+            color: #603C12;
+        }
+        
+    }
+    .container_2{
+        margin-left: 80px;
+        
+        .titulo{
+            font-size: 40px;
+            color: #603C12;
+            font-weight: 600;
+            font-family: 'arial';
+        }
+        .descricao{
+            color: #603C12;
+            margin: 10px 0 25px 0;
+            font-size: 18px;
+        }
+        .formulario{
+            input{
+                background: #FEE4C1;
+                border: none;
+                height: 50px;
+                color: #603C12;
+            }
+            input:focus{
+                outline: none;
+                box-shadow: none;
+            }
+            .row:nth-child(2){
+                margin-top: 20px;
+            }
+        }
+
+        button{
+            width: 200px;
+            margin-top: 20px;
+            color: #fff;
+            background: #603C12;
+        }
+    }
+}

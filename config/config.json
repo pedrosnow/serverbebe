@@ -1,0 +1,9 @@
+{
+  "production": {
+    "username": "kroti",
+    "password": "nutrolao#09d",
+    "database": "databeber",
+    "host": "172.16.2.2",
+    "dialect": "mysql"
+  }
+}

@@ -1,0 +1,21 @@
+version: '3.9'
+
+services:
+  db:
+    image: mysql
+    restart: always
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_DATABASE: databeber
+      MYSQL_USER: kroti
+      MYSQL_PASSWORD: nutrolao#09d
+      MYSQL_ROOT_PASSWORD: beb#steok9
+    volumes:
+      - db_data:/var/lib/mysql
+
+    networks:
+      - default
+
+volumes:
+  db_data:
