@@ -1,9 +1,26 @@
 {
+  "development": {
+    "username": "kroti",
+    "password": "nutrolao#09d",
+    "database": "databeber",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "port": 3307
+  },
+  "test": {
+    "username": "kroti",
+    "password": "nutrolao#09d",
+    "database": "databeber",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "port": 3307
+  },
   "production": {
     "username": "kroti",
     "password": "nutrolao#09d",
     "database": "databeber",
-    "host": "172.16.2.2",
-    "dialect": "mysql"
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "port": 3307
   }
 }

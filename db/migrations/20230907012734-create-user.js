@@ -9,7 +9,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      nome: {
+      Nome: {
         type: Sequelize.STRING
       },
       sobreNome: {
@@ -19,10 +19,13 @@ module.exports = {
         type: Sequelize.STRING
       },
       acesso: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       password: {
-        type: Sequelize.TEXT
+        type: Sequelize.STRING
+      },
+      celular: {
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
