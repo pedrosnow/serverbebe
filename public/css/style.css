@@ -410,6 +410,32 @@ template {
   justify-content: center;
   align-items: center;
 }
+@media (max-width: 576px) {
+  .container-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+    height: 100%;
+  }
+}
+@media (max-width: 768px) {
+  .container-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+@media (max-width: 992px) {
+  .container-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}
 .container-login .container_1 {
   width: 500px;
   display: flex;
@@ -420,6 +446,11 @@ template {
 .container-login .container_1 img {
   width: 80%;
 }
+@media (max-width: 576px) {
+  .container-login .container_1 img {
+    width: 30%;
+  }
+}
 .container-login .container_1 .titulo {
   font-family: "Licorice-Regular";
   font-weight: 600;
@@ -428,8 +459,19 @@ template {
   margin-top: 50px;
   color: #603C12;
 }
+@media (max-width: 576px) {
+  .container-login .container_1 .titulo {
+    font-size: 30px;
+    margin-top: 20px;
+  }
+}
 .container-login .container_2 {
   margin-left: 80px;
+}
+@media (max-width: 576px) {
+  .container-login .container_2 {
+    margin-left: 0px;
+  }
 }
 .container-login .container_2 .titulo {
   font-size: 40px;
@@ -437,16 +479,31 @@ template {
   font-weight: 600;
   font-family: "arial";
 }
+@media (max-width: 576px) {
+  .container-login .container_2 .titulo {
+    font-size: 20px;
+  }
+}
 .container-login .container_2 .descricao {
   color: #603C12;
   margin: 10px 0 25px 0;
   font-size: 18px;
+}
+@media (max-width: 576px) {
+  .container-login .container_2 .descricao {
+    font-size: 14px;
+  }
 }
 .container-login .container_2 .formulario input {
   background: #FEE4C1;
   border: none;
   height: 50px;
   color: #603C12;
+}
+@media (max-width: 576px) {
+  .container-login .container_2 .formulario input {
+    height: 45px;
+  }
 }
 .container-login .container_2 .formulario input:focus {
   outline: none;

@@ -3,12 +3,32 @@
     height: 100%;
     @include d-center;
 
+    @media (max-width: $smallDevices) {
+        @include d-center-coll;
+        overflow: hidden;
+        height: 100%;
+    }
+    
+    @media (max-width: $MediumDevices) {
+        @include d-center-coll;
+    }
+    
+    @media (max-width: $LargeDevices) {
+        @include d-center-coll;
+    }
+
     .container_1{
         width: 500px;
         @include d-center-coll;
 
         img{
             width:80%;
+
+            @media (max-width: $smallDevices) {
+                width:30%;
+            }
+            @media (max-width: $MediumDevices) {}
+            @media (max-width: $LargeDevices) {}
 
         }
         .titulo{
@@ -18,22 +38,39 @@
             text-align: center;
             margin-top: 50px;
             color: #603C12;
+
+            @media (max-width: $smallDevices) {
+                font-size: 30px;
+                margin-top: 20px;
+            }
         }
         
     }
     .container_2{
         margin-left: 80px;
+
+        @media (max-width: $smallDevices) {
+            margin-left: 0px;
+        }
         
         .titulo{
             font-size: 40px;
             color: #603C12;
             font-weight: 600;
             font-family: 'arial';
+
+            @media (max-width: $smallDevices) {
+                font-size: 20px;
+            }
         }
         .descricao{
             color: #603C12;
             margin: 10px 0 25px 0;
             font-size: 18px;
+
+            @media (max-width: $smallDevices) {
+                font-size: 14px;
+            }
         }
         .formulario{
             input{
@@ -41,6 +78,10 @@
                 border: none;
                 height: 50px;
                 color: #603C12;
+
+                @media (max-width: $smallDevices) {
+                    height: 45px;
+                }
             }
             input:focus{
                 outline: none;

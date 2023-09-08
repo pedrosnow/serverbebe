@@ -1,14 +1,12 @@
 import { Router } from "express";
-import { Auth } from "./controller/authController";
 import csrf from 'csurf';
+import { toEnter, SingIn } from "./controller/authController";
+import { live } from "./controller/liveController";
 
 const csrfProtection = csrf({ cookie: true });
 
 export const router = Router()
 
-router.get('/', csrfProtection, (req: Request, res: Response) =>{
-    res.render('home', { csrfToken: req.csrfToken() })
-})
-
-router.post('/singIn', csrfProtection, Auth)
-
+router.get('/', csrfProtection, SingIn)
+router.post('/toEnter', csrfProtection, toEnter)
+router.get('/live', live)
