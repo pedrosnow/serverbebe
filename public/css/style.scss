@@ -1,13 +1,12 @@
-@import './base/_normalize.scss';
-@import './base/_media.scss';
+@import "./base/_normalize.scss";
+@import "./base/_media.scss";
 
-@import './helpers/_variavel.scss';
+@import "./helpers/_fontes.scss";
+@import "./helpers/_mixin.scss";
+@import "./helpers/_modal.scss";
+@import "./helpers/_header.scss";
+@import "./helpers/_loading.scss";
 
-@import './helpers/_mixin.scss';
-@import './helpers/_modal.scss';
-@import './helpers/_loading.scss';
-
-@import './layouts/_login.scss';
-
-
-
+@import "./layouts/_login.scss";
+@import "./layouts/_home.scss";
+@import "./layouts/_live.scss";

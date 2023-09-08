@@ -1,0 +1,41 @@
+<!DOCTYPE html style="width: 100%; height: 100% !important">
+<html lang="pt-br">
+
+<head>
+    <%- include('./layout/head') %>
+</head>
+
+<body>
+    <main class="container-login">
+        <div class="container_1">
+            <img src="static/img/incone.svg" alt="" class="logo">
+            <div class="titulo">Meu Bebê</div>
+            <div class="descricao"></div>
+        </div>
+        <div class="container_2">
+            <div class="titulo">Entrar</div>
+            <div class="descricao">Entre no nosso sistema para baixar os videos do seu Bebê.</div>
+            <form class="formulario">
+                <div class="row">
+                    <div class="col">
+                        <input type="text" class="form-control" id="_acesso" placeholder="Codigo de acesso">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <input type="text" class="form-control" id="_senha" placeholder="Senha">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <button class="btn">Entrar</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </main>
+    <script src="static/js/auth.js"></script>
+</body>
+
+</html>

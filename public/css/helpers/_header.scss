@@ -1,0 +1,33 @@
+.header {
+	width: 100%;
+	padding: 10px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	@include d-center-row;
+
+	.container_1 {
+		@include d-center-row-start;
+		width: 37%;
+		.titulo {
+			font-family: "Licorice-Regular";
+			font-weight: 600;
+			font-size: 40px;
+			color: #603c12;
+		}
+		.logo {
+			img {
+				width: 150px;
+			}
+		}
+	}
+	.container_2 {
+		@include d-center-row-end;
+		width: 300px;
+		li {
+			cursor: pointer;
+			color: #603c12;
+			font-size: 30px;
+		}
+	}
+}

@@ -1,41 +1,68 @@
-import { Model, DataTypes } from "sequelize";
+import { Model, DataTypes, Optional } from "sequelize";
 import { sequelize } from "../../config/databases";
 
-class User extends Model {}
+type UserAttributes = {
+	id: number;
+	Nome: string;
+	sobreNome: string;
+	email: string;
+	acesso: string;
+	password: string;
+	celular: string;
+	createdAt: Date;
+	updatedAt: Date;
+};
 
-User.init({
-    id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        autoIncrement: true,
-        primaryKey: true,
-      },
-      Nome: {
-        type: DataTypes.STRING
-      },
-      sobreNome: {
-        type: DataTypes.STRING
-      },
-      email: {
-        type: DataTypes.STRING
-      },
-      acesso: {
-        type: DataTypes.STRING
-      },
-      password: {
-        type: DataTypes.STRING
-      },
-      celular: {
-        type: DataTypes.STRING
-      },
-      createdAt: {
-        allowNull: false,
-        type: DataTypes.DATE
-      },
-      updatedAt: {
-        allowNull: false,
-        type: DataTypes.DATE
-      }
-},{ tableName: "Users", sequelize: sequelize })
+type UserCreationAttributes = Optional<UserAttributes, "id">;
 
-export default User
+class User extends Model<UserAttributes, UserCreationAttributes> {
+	declare id: number;
+	declare Nome: string;
+	declare sobreNome: string;
+	declare email: string;
+	declare acesso: string;
+	declare password: string;
+	declare celular: string;
+	declare createdAt: Date;
+	declare updatedAt: Date;
+}
+
+User.init(
+	{
+		id: {
+			type: DataTypes.INTEGER,
+			allowNull: false,
+			autoIncrement: true,
+			primaryKey: true,
+		},
+		Nome: {
+			type: DataTypes.STRING,
+		},
+		sobreNome: {
+			type: DataTypes.STRING,
+		},
+		email: {
+			type: DataTypes.STRING,
+		},
+		acesso: {
+			type: DataTypes.STRING,
+		},
+		password: {
+			type: DataTypes.STRING,
+		},
+		celular: {
+			type: DataTypes.STRING,
+		},
+		createdAt: {
+			allowNull: false,
+			type: DataTypes.DATE,
+		},
+		updatedAt: {
+			allowNull: false,
+			type: DataTypes.DATE,
+		},
+	},
+	{ tableName: "Users", sequelize: sequelize }
+);
+
+export default User;

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta http-equiv="Content-Security-Policy" content="script-src 'self'; media-src http://localhost;">
+  <meta name="csrf-token" content="<%= locals.csrfToken %>">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="static/css/style.css">
+  <link rel="stylesheet" href="static/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="node/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="node/animate.css/animate.min.css">
+  <link rel="stylesheet" href="node/sweetalert2/dist/sweetalert2.min.css">
+
+  <link href="node/video.js/dist/video-js.min.css" rel="stylesheet">
+  <script src="node/video.js/dist/video.min.js"></script>
+
+  <script src="node/sweetalert2/dist/sweetalert2.min.js"></script>
+  <script src="static/js/jquery.js"></script>
+
+  <title>
+    <%= titulo %>
+  </title>
+
+</head>
+
+<body>
+  <div class="container-live">
+    <img src="/static/img/incone.svg" id="logo">
+
+    <div class="card" id="card-stream">
+      <div class="container-live">
+        <video id="tutorial" class="video-js vjs-default-skin" controls preload="auto" data-setup='{}'>
+          <source src="<%= steamLink %>" type="application/x-mpegURL">
+        </video>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

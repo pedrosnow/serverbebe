@@ -1,20 +1,21 @@
 let auth = {
-    init(){
-       this.singIn()
+    init() {
+        this.singIn()
     },
-    singIn(){
+    singIn() {
 
-        let button = document.querySelector("button")
+        let formulario = document.querySelector(".formulario")
 
-        button.addEventListener("click", ()=>{
+        formulario.addEventListener("submit", (event) => {
+
+            event.preventDefault()
 
             let modal = document.querySelector("body")
 
             let acesso = document.getElementById("_acesso")
             let senha = document.getElementById("_senha")
 
-            if(acesso.value == "" && senha.value == "")
-            {
+            if (acesso.value == "" && senha.value == "") {
                 Swal.fire({
                     title: 'Ops!!',
                     text: "Acesso e a senha são obrigatorios",
@@ -23,10 +24,9 @@ let auth = {
                     confirmButtonColor: '#3085d6',
                     confirmButtonText: 'Sim!',
                     allowOutsideClick: false
-                  })
+                })
             }
-            else if(acesso.value == "")
-            {
+            else if (acesso.value == "") {
                 Swal.fire({
                     title: 'Ops!!',
                     text: "Acesso é obrigatorios",
@@ -35,10 +35,9 @@ let auth = {
                     confirmButtonColor: '#3085d6',
                     confirmButtonText: 'Sim!',
                     allowOutsideClick: false
-                  })
+                })
             }
-            else if(senha.value == "")
-            {
+            else if (senha.value == "") {
                 Swal.fire({
                     title: 'Ops!!',
                     text: "Senha obrigatorios",
@@ -47,16 +46,15 @@ let auth = {
                     confirmButtonColor: '#3085d6',
                     confirmButtonText: 'Sim!',
                     allowOutsideClick: false
-                  })
+                })
             }
-            else
-            {
+            else {
                 modal.append(this.loading())
-                
+
                 fetch('/singIn', {
                     method: "POST",
                     headers: {
-                        'X-CSRF-Token' : $('meta[name="csrf-token"]').attr("content"),
+                        'X-CSRF-Token': $('meta[name="csrf-token"]').attr("content"),
                         "Content-Type": "application/json",
                     },
                     body: JSON.stringify({
@@ -64,16 +62,16 @@ let auth = {
                         senha: senha.value
                     })
                 })
-                .then(result => console.log(result))
-                .catch(erro => console.log(erro))
+                    .then(result => console.log(result))
+                    .catch(erro => console.log(erro))
             }
 
         })
-       
+
 
     },
 
-    loading(){
+    loading() {
 
         let container, card, span, info, titulo, descricao, modal
 
@@ -102,12 +100,12 @@ let auth = {
 
         modal.classList.add('container-modal')
         modal.append(container)
-        
+
         return modal
 
     },
 
-    
+
 }
 
 auth.init()

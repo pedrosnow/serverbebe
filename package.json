@@ -18,12 +18,15 @@
     "@types/node": "^20.5.9",
     "sequelize-cli": "^6.6.1",
     "ts-node-dev": "^2.0.0",
-    "typescript": "^5.2.2"
+    "typescript": "^5.2.2",
+    "video.js": "^8.5.2"
   },
   "dependencies": {
     "@types/cookie-parser": "^1.4.4",
     "@types/csurf": "^1.11.3",
     "@types/ejs": "^3.1.2",
+    "@types/reflect-metadata": "^0.1.0",
+    "@types/request": "^2.48.8",
     "animate.css": "^4.1.1",
     "bcrypt": "^5.1.1",
     "bootstrap": "^5.3.1",
@@ -37,6 +40,7 @@
     "jsonwebtoken": "^9.0.2",
     "multer-sftp": "^1.1.1",
     "mysql2": "^3.6.0",
+    "request": "^2.88.2",
     "sequelize": "^6.32.1",
     "sequelize-typescript": "^2.1.5",
     "sqlite3": "^5.1.6",

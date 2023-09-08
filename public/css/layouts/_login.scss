@@ -1,102 +1,102 @@
-.container-login{
-    width: 100%;
-    height: 100%;
-    @include d-center;
+.container-login {
+	width: 100%;
+	height: 100%;
+	@include d-center;
 
-    @media (max-width: $smallDevices) {
-        @include d-center-coll;
-        overflow: hidden;
-        height: 100%;
-    }
-    
-    @media (max-width: $MediumDevices) {
-        @include d-center-coll;
-    }
-    
-    @media (max-width: $LargeDevices) {
-        @include d-center-coll;
-    }
+	@media (max-width: $smallDevices) {
+		@include d-center-coll;
+		overflow: hidden;
+		height: 100%;
+	}
 
-    .container_1{
-        width: 500px;
-        @include d-center-coll;
+	@media (max-width: $MediumDevices) {
+		@include d-center-coll;
+	}
 
-        img{
-            width:80%;
+	@media (max-width: $LargeDevices) {
+		@include d-center-coll;
+	}
 
-            @media (max-width: $smallDevices) {
-                width:30%;
-            }
-            @media (max-width: $MediumDevices) {}
-            @media (max-width: $LargeDevices) {}
+	.container_1 {
+		width: 500px;
+		@include d-center-coll;
 
-        }
-        .titulo{
-            font-family: 'Licorice-Regular';
-            font-weight: 600;
-            font-size: 50px;
-            text-align: center;
-            margin-top: 50px;
-            color: #603C12;
+		img {
+			width: 80%;
 
-            @media (max-width: $smallDevices) {
-                font-size: 30px;
-                margin-top: 20px;
-            }
-        }
-        
-    }
-    .container_2{
-        margin-left: 80px;
+			@media (max-width: $smallDevices) {
+				width: 30%;
+			}
+			@media (max-width: $MediumDevices) {
+			}
+			@media (max-width: $LargeDevices) {
+			}
+		}
+		.titulo {
+			font-family: "Licorice-Regular";
+			font-weight: 600;
+			font-size: 50px;
+			text-align: center;
+			margin-top: 50px;
+			color: #603c12;
 
-        @media (max-width: $smallDevices) {
-            margin-left: 0px;
-        }
-        
-        .titulo{
-            font-size: 40px;
-            color: #603C12;
-            font-weight: 600;
-            font-family: 'arial';
+			@media (max-width: $smallDevices) {
+				font-size: 30px;
+				margin-top: 20px;
+			}
+		}
+	}
+	.container_2 {
+		margin-left: 80px;
 
-            @media (max-width: $smallDevices) {
-                font-size: 20px;
-            }
-        }
-        .descricao{
-            color: #603C12;
-            margin: 10px 0 25px 0;
-            font-size: 18px;
+		@media (max-width: $smallDevices) {
+			margin-left: 0px;
+		}
 
-            @media (max-width: $smallDevices) {
-                font-size: 14px;
-            }
-        }
-        .formulario{
-            input{
-                background: #FEE4C1;
-                border: none;
-                height: 50px;
-                color: #603C12;
+		.titulo {
+			font-size: 40px;
+			color: #603c12;
+			font-weight: 600;
+			font-family: "arial";
 
-                @media (max-width: $smallDevices) {
-                    height: 45px;
-                }
-            }
-            input:focus{
-                outline: none;
-                box-shadow: none;
-            }
-            .row:nth-child(2){
-                margin-top: 20px;
-            }
-        }
+			@media (max-width: $smallDevices) {
+				font-size: 20px;
+			}
+		}
+		.descricao {
+			color: #603c12;
+			margin: 10px 0 25px 0;
+			font-size: 18px;
 
-        button{
-            width: 200px;
-            margin-top: 20px;
-            color: #fff;
-            background: #603C12;
-        }
-    }
+			@media (max-width: $smallDevices) {
+				font-size: 14px;
+			}
+		}
+		.formulario {
+			input {
+				background: #fee4c1;
+				border: none;
+				height: 50px;
+				color: #603c12;
+
+				@media (max-width: $smallDevices) {
+					height: 45px;
+				}
+			}
+			input:focus {
+				outline: none;
+				box-shadow: none;
+			}
+			.row:nth-child(2) {
+				margin-top: 20px;
+			}
+		}
+
+		button {
+			width: 200px;
+			margin-top: 20px;
+			color: #fff;
+			background: #603c12;
+		}
+	}
 }
