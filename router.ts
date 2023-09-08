@@ -1,11 +1,12 @@
 import { Router } from "express";
-import { toEnter, SingIn } from "./controller/authController";
 import csrf from 'csurf';
+import { toEnter, SingIn } from "./controller/authController";
+import { live } from "./controller/liveController";
 
 const csrfProtection = csrf({ cookie: true });
 
 export const router = Router()
 
 router.get('/', csrfProtection, SingIn)
-router.get('/toEnter', csrfProtection, toEnter)
-
+router.post('/toEnter', csrfProtection, toEnter)
+router.get('/live', live)
