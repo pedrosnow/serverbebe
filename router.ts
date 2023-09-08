@@ -5,6 +5,7 @@ import { live } from "./controller/liveController";
 import { home } from "./controller/homeController";
 import { token } from "./middleware/token";
 import { sendMensage } from "./controller/sendMensageController";
+import { file } from "./controller/fileController";
 
 const csrfProtection = csrf({ cookie: true });
 
@@ -15,3 +16,4 @@ router.post("/toEnter", csrfProtection, toEnter);
 router.get("/home", home);
 router.get("/live/:token/:chave", live);
 router.post("/sendMensage", sendMensage);
+router.get('/teste', file)
