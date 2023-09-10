@@ -9,6 +9,7 @@ type UserAttributes = {
 	acesso: string;
 	password: string;
 	celular: string;
+	pass: string;
 	createdAt: Date;
 	updatedAt: Date;
 };
@@ -23,6 +24,7 @@ class User extends Model<UserAttributes, UserCreationAttributes> {
 	declare acesso: string;
 	declare password: string;
 	declare celular: string;
+	declare pass: string;
 	declare createdAt: Date;
 	declare updatedAt: Date;
 }
@@ -48,10 +50,13 @@ User.init(
 			type: DataTypes.STRING,
 		},
 		password: {
-			type: DataTypes.STRING,
+			type: DataTypes.TEXT,
 		},
 		celular: {
 			type: DataTypes.STRING,
+		},
+		pass: {
+			type: DataTypes.TEXT
 		},
 		createdAt: {
 			allowNull: false,

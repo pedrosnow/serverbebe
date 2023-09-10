@@ -1,12 +1,84 @@
+import User from "../db/models/user";
 import { SendProps } from "../@types/SendProps";
 import { Request, Response } from "express";
+import bcrypt from 'bcrypt'
 import request from "request";
+import jwt from 'jsonwebtoken'
 
-export const sendMensage = (
+export const sendMensage = async (
 	req: Request<{}, {}, SendProps>,
 	res: Response
 ) => {
-	const { msg, number } = req.body;
+
+	const { celular, pacienteid, chave } = req.body;
+	
+	let salt = 10
+	let msg = ''
+	let secret = (process.env.SECRET ? process.env.SECRET : "")
+
+	const Users = await User.findOne({ where: { acesso: pacienteid } });
+
+	if(Users){
+
+		const token = jwt.sign({ data: {id: Users.id}}, secret, { expiresIn: '1h', });
+
+		msg = `Olá!😊 
+Segue o link para acessar a transmissão ao vivo do exame do bebê: http://localhost:3000/live/${token}/${chave}
+			
+*👶🏽 Acesso aos Vídeos do Bebê*
+
+🔑 *Código de Acesso:* ${pacienteid}
+🔒 *Senha:* ${chave}
+
+*⚠️ Aviso Importante! *
+Os vídeos armazenados na nuvem têm um período de validade de até 9 meses. Após esse período, os vídeos serão removidos automaticamente. 
+Recomendamos que a mamãe e o papai façam o download dos vídeos e os salvem em outro local seguro. Dessa forma, vocês poderão guardar essas preciosas lembranças por mais tempo. 🥰
+			`
+
+	}else{
+
+
+		try {
+
+			let password = await bcrypt.hash(chave, salt)
+
+			let response = await User.create({
+				Nome: "",
+				sobreNome: "",
+				email: "",
+				acesso: pacienteid.toString(),
+				password: password,
+				celular: celular.toString(), // Certifique-se de que o celular seja uma string
+				pass: chave,
+				createdAt: new Date(),
+				updatedAt: new Date('0000-00-00 00:00:00'),
+			});
+
+			console.log(response)
+
+			const token = jwt.sign({ data: {id: response.id}}, secret, { expiresIn: '1h', });
+	
+
+			msg = `Olá!😊 
+Segue o link para acessar a transmissão ao vivo do exame do bebê: http://localhost:3000/live/${token}/${chave}
+			
+*👶🏽 Acesso aos Vídeos do Bebê*
+
+🔑 *Código de Acesso:* ${pacienteid}
+🔒 *Senha:* ${chave}
+
+*⚠️ Aviso Importante! *
+Os vídeos armazenados na nuvem têm um período de validade de até 9 meses. Após esse período, os vídeos serão removidos automaticamente. 
+Recomendamos que a mamãe e o papai façam o download dos vídeos e os salvem em outro local seguro. Dessa forma, vocês poderão guardar essas preciosas lembranças por mais tempo. 🥰
+			`
+			
+		} catch (error) {
+			
+			res.status(500).json({ msg: "Algo inesperado aconteceu", response: error });
+
+		}
+		
+	}
 
 	try {
 		var options = {
@@ -18,18 +90,24 @@ export const sendMensage = (
 			},
 			body: JSON.stringify({
 				messageData: {
-					to: `55${number}@s.whatsapp.net`,
+					to: `55${celular}@s.whatsapp.net`,
 					text: msg,
 				},
 			}),
 		};
 		request(options, function (error: any, response: any) {
-			if (error) throw new Error(error);
-			console.log(response.body);
+			let bodyresponse = JSON.parse(response.body)
+			if(error){
+				res.status(200).json({ msg: "erro ao enviar a mensagem", statuserro: bodyresponse.error});
+			}
+			res.status(200).json({ msg: "sucesso ao enviar a mensagem", statuserro: bodyresponse.error});
+
 		});
 
-		res.status(200).json({ msg: "send sucess" });
+
 	} catch (error) {
-		res.status(500).json({ msg: "erro send sucess" });
+		res.status(500).json({ msg: "Algo inesperado aconteceu", response: error });
 	}
+
+	
 };

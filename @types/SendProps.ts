@@ -1,4 +1,5 @@
 export type SendProps = {
-	number: number;
-	msg: string;
+	celular: number;
+	pacienteid: number;
+	chave: string
 };
