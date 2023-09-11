@@ -23,12 +23,12 @@ export const sendMensage = async (
 		const token = jwt.sign({ data: {id: Users.id}}, secret, { expiresIn: '1h', });
 
 		msg = `Olá!😊 
-Segue o link para acessar a transmissão ao vivo do exame do bebê: http://localhost:3000/live/${token}/${chave}
+Segue o link para acessar a transmissão ao vivo do exame do bebê: http://localhost:3000/live/${token}/${chave.replace(/"/g, '')}
 			
 *👶🏽 Acesso aos Vídeos do Bebê*
 
 🔑 *Código de Acesso:* ${pacienteid}
-🔒 *Senha:* ${chave}
+🔒 *Senha:* ${chave.replace(/"/g, '')}
 
 *⚠️ Aviso Importante! *
 Os vídeos armazenados na nuvem têm um período de validade de até 9 meses. Após esse período, os vídeos serão removidos automaticamente. 
@@ -40,7 +40,7 @@ Recomendamos que a mamãe e o papai façam o download dos vídeos e os salvem em
 
 		try {
 
-			let password = await bcrypt.hash(chave, salt)
+			let password = await bcrypt.hash(chave.replace(/"/g, ''), salt)
 
 			let response = await User.create({
 				Nome: "",
@@ -54,18 +54,16 @@ Recomendamos que a mamãe e o papai façam o download dos vídeos e os salvem em
 				updatedAt: new Date('0000-00-00 00:00:00'),
 			});
 
-			console.log(response)
-
 			const token = jwt.sign({ data: {id: response.id}}, secret, { expiresIn: '1h', });
 	
 
 			msg = `Olá!😊 
-Segue o link para acessar a transmissão ao vivo do exame do bebê: http://localhost:3000/live/${token}/${chave}
+Segue o link para acessar a transmissão ao vivo do exame do bebê: http://localhost:3000/live/${token}/${chave.replace(/"/g, '')}
 			
 *👶🏽 Acesso aos Vídeos do Bebê*
 
 🔑 *Código de Acesso:* ${pacienteid}
-🔒 *Senha:* ${chave}
+🔒 *Senha:* ${chave.replace(/"/g, '')}
 
 *⚠️ Aviso Importante! *
 Os vídeos armazenados na nuvem têm um período de validade de até 9 meses. Após esse período, os vídeos serão removidos automaticamente. 
