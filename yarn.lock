@@ -213,6 +213,11 @@
   resolved "https://registry.npmjs.org/@types/node/-/node-20.5.9.tgz"
   integrity sha512-PcGNd//40kHAS3sTlzKB9C9XL4K0sTup8nbG5lC14kzEteTNuAFh9u5nA0o5TWnSG2r/JNPRXFVcHJIIeRlmqQ==
 
+"@types/node@^18.11.18":
+  version "18.17.15"
+  resolved "https://registry.npmjs.org/@types/node/-/node-18.17.15.tgz"
+  integrity sha512-2yrWpBk32tvV/JAd3HNHWuZn/VDN1P+72hWirHnvsvTGSqbANi+kSeuQR9yAHnbvaBvHDsoTdXV0Fe+iRtHLKA==
+
 "@types/qs@*":
   version "6.9.8"
   resolved "https://registry.npmjs.org/@types/qs/-/qs-6.9.8.tgz"
@@ -256,6 +261,20 @@
     "@types/http-errors" "*"
     "@types/mime" "*"
     "@types/node" "*"
+
+"@types/ssh2-sftp-client@^9.0.0":
+  version "9.0.0"
+  resolved "https://registry.npmjs.org/@types/ssh2-sftp-client/-/ssh2-sftp-client-9.0.0.tgz"
+  integrity sha512-TLrSS/GoU9UwGx9WqTPY/1zQL0TITLw+lmjcT+xGHGjozT+dS/ptwhh/FF1+rY0XJ2P715WDkL/e8yEOnoCR/g==
+  dependencies:
+    "@types/ssh2" "*"
+
+"@types/ssh2@*":
+  version "1.11.13"
+  resolved "https://registry.npmjs.org/@types/ssh2/-/ssh2-1.11.13.tgz"
+  integrity sha512-08WbG68HvQ2YVi74n2iSUnYHYpUdFc/s2IsI0BHBdJwaqYJpWlVv9elL0tYShTv60yr0ObdxJR5NrCRiGJ/0CQ==
+  dependencies:
+    "@types/node" "^18.11.18"
 
 "@types/strip-bom@^3.0.0":
   version "3.0.0"
