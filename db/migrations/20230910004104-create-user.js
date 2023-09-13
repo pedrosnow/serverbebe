@@ -30,6 +30,9 @@ module.exports = {
       pass: {
         type: Sequelize.TEXT
       },
+      isAdmin: {
+        type: Sequelize.TINYINT
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

@@ -1,4 +1,7 @@
 let auth = {
+    
+    baseurl: window.location.href,
+
     init() {
         this.singIn()
     },
@@ -51,7 +54,8 @@ let auth = {
             else {
                 modal.append(this.loading())
 
-                fetch('/singIn', {
+                const url = `${this.baseurl}toEnter`
+                fetch(url, {
                     method: "POST",
                     headers: {
                         'X-CSRF-Token': $('meta[name="csrf-token"]').attr("content"),
@@ -62,8 +66,14 @@ let auth = {
                         senha: senha.value
                     })
                 })
-                    .then(result => console.log(result))
-                    .catch(erro => console.log(erro))
+                .then(response => response.text())
+                .then(result => {
+                    const RESPONSE = JSON.parse(result)
+                    document.cookie = `token=${RESPONSE.token}`
+                    document.location.href = RESPONSE.url
+                    
+                })
+                .catch(error => console.log('error', error));
             }
 
         })

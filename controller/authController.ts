@@ -27,9 +27,9 @@ export const toEnter = async (
 		if (Users) {
 			const result = await bcrypt.compare(senha, Users.password);
 			if (result) {
-				const user = { id: Users.id };
+				const user = { id: Users.id, isAdmin: Users.isAdmin };
 				const token = jwt.sign(user, secret ? secret : "");
-				res.status(404).json({ token: token, url: "/home" });
+				res.status(200).json({ token: token, url: "/home" });
 			} else {
 				res.status(404).json({ msg: "usuario ou senha incorreto" });
 			}
