@@ -33,7 +33,7 @@ Segue o link para acessar a transmissão ao vivo do exame do bebê: http://local
 *⚠️ Aviso Importante! *
 Os vídeos armazenados na nuvem têm um período de validade de até 9 meses. Após esse período, os vídeos serão removidos automaticamente. 
 Recomendamos que a mamãe e o papai façam o download dos vídeos e os salvem em outro local seguro. Dessa forma, vocês poderão guardar essas preciosas lembranças por mais tempo. 🥰
-			`
+`
 
 	}else{
 
@@ -50,6 +50,7 @@ Recomendamos que a mamãe e o papai façam o download dos vídeos e os salvem em
 				password: password,
 				celular: celular.toString(), // Certifique-se de que o celular seja uma string
 				pass: chave,
+				isAdmin: false,
 				createdAt: new Date(),
 				updatedAt: new Date('0000-00-00 00:00:00'),
 			});

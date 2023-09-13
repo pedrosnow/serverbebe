@@ -10,6 +10,7 @@ type UserAttributes = {
 	password: string;
 	celular: string;
 	pass: string;
+	isAdmin: boolean;
 	createdAt: Date;
 	updatedAt: Date;
 };
@@ -25,6 +26,7 @@ class User extends Model<UserAttributes, UserCreationAttributes> {
 	declare password: string;
 	declare celular: string;
 	declare pass: string;
+	declare isAdmin: boolean;
 	declare createdAt: Date;
 	declare updatedAt: Date;
 }
@@ -57,6 +59,9 @@ User.init(
 		},
 		pass: {
 			type: DataTypes.TEXT
+		},
+		isAdmin: {
+			type: DataTypes.TINYINT
 		},
 		createdAt: {
 			allowNull: false,
