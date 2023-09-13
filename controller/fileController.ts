@@ -28,37 +28,38 @@ export const file = (req:Request, res:Response) => {
         response.data.pipe(writer);
     
         writer.on('finish', () => {
-           res.send('Arquivo de vídeo baixado com sucesso!')
+           res.send('sucesso')
 
-           const config = { host: (process.env.HOST_SFTP ? process.env.HOST_SFTP : ""), port: 22, username: (process.env.USERNAME_SFTP ? process.env.USERNAME_SFTP : ""), password:  (process.env.PASSWORD_SFTP ? process.env.PASSWORD_SFTP : "") };
+        //    const config = { host: (process.env.HOST_SFTP ? process.env.HOST_SFTP : ""), port: 22, username: (process.env.USERNAME_SFTP ? process.env.USERNAME_SFTP : ""), password:  (process.env.PASSWORD_SFTP ? process.env.PASSWORD_SFTP : "") };
 
-           const pastaNome = `/udi_meubb/${pacienteid}`
-           const arquivoNome = `${chave}.mp4`
+        //    const pastaNome = `/udi_meubb/${pacienteid}`
+        //    const arquivoNome = `${chave}.mp4`
 
-           const sftp = new Client()
+        //    const sftp = new Client()
 
-           sftp.connect(config)
-           .then(()=>{
-                return sftp.mkdir(pastaNome, true);
-           })
-           .then(() => {
-                return sftp.put(path_file, `${pastaNome}/${arquivoNome}`);
-            })
-            .then(() => {
-                console.log(`Pasta "${pastaNome}" criada e arquivo "${arquivoNome}" enviado com sucesso para o servidor.`);
-                sftp.end();
-            })
-            .catch(err => {
-                console.error('Erro:', err.message);
-                sftp.end();
-            });
+        //    sftp.connect(config)
+        //    .then(()=>{
+        //         return sftp.mkdir(pastaNome, true);
+        //    })
+        //    .then(() => {
+        //         return sftp.put(path_file, `${pastaNome}/${arquivoNome}`);
+        //     })
+        //     .then(() => {
+        //         console.log(`Pasta "${pastaNome}" criada e arquivo "${arquivoNome}" enviado com sucesso para o servidor.`);
+        //         sftp.end();
+        //     })
+        //     .catch(err => {
+        //         console.error('Erro:', err.message);
+        //         sftp.end();
+        //     });
 
 
 
         });
     })
     .catch((error) => {
-        res.send('Erro ao baixar o arquivo de vídeo: ' + error)
+        console.log(error)
+        res.send('erro')
     });
 
   
