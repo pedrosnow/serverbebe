@@ -61,4 +61,45 @@
 		border-radius: 20px; /* roundness of the scroll thumb */
 		border: 3px solid #603c12; /* creates padding around scroll thumb */
 	}
+
+	.container-status{
+		display: flex;
+		background: #603c12;
+		justify-content: flex-start;
+		align-items: center;
+		padding: 15px;
+		border-radius: 5px;
+
+		.container{
+			.titulo{
+				font-size: 30px;
+				color: #FFF;
+			}
+			.descricao{
+				color: #FFF;
+			}
+		}
+	}
+
+	.container-loading{
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		padding: 20px;
+		background: #603c12;
+		border-radius: 5px;
+
+		.container{
+			margin-left: 10px;
+		}
+
+		.titulo{
+			font-size: 25px;
+			color: #fff;
+		}
+		.descricao{
+			color: #fff;
+		}
+	}
+
 }

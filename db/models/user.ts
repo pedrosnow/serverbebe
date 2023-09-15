@@ -1,5 +1,6 @@
 import { Model, DataTypes, Optional } from "sequelize";
 import { sequelize } from "../../config/databases";
+import File from "./file";
 
 type UserAttributes = {
 	id: number;
@@ -25,7 +26,7 @@ class User extends Model<UserAttributes, UserCreationAttributes> {
 	declare acesso: string;
 	declare password: string;
 	declare celular: string;
-	declare pass: string;
+	declare acessoid: string;
 	declare isAdmin: boolean;
 	declare createdAt: Date;
 	declare updatedAt: Date;

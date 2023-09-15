@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 import { Request, Response, NextFunction } from "express";
-import { TokenProp, TokenPlayload } from "../@types/Token";
+import { TokenProp, TokenPayload } from "../@types/Token";
 
 export const token = (
 	req: Request<{}, {}, TokenProp>,
@@ -8,7 +8,7 @@ export const token = (
 	next: NextFunction
 ) => {
 	const secret = process.env.SECRET;
-	const token = req.cookies.token;
+	const token = req.cookies.token;	
 
 	if (!token) {
 		res.redirect("/");
@@ -16,6 +16,8 @@ export const token = (
 		try {
 			const response = jwt.verify(token, secret ? secret : "");
 			if (response) {
+
+				req.body.tokenPayLoad = response
 				
 				next();				
 
@@ -44,7 +46,7 @@ export const Tokenadmin = (
 		try {
 			const response = jwt.verify(token, secret ? secret : "");
 			
-			const { isAdmin } = response as TokenPlayload
+			const { isAdmin } = response as TokenPayload
 
 			// Verifique se o usuário é um administrador
 			const userIsAdmin = isAdmin; // Supondo que o campo seja chamado 'isAdmin'

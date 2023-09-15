@@ -3,7 +3,22 @@ let auth = {
     baseurl: window.location.href,
 
     init() {
+
         this.singIn()
+
+        if (document.addEventListener) {
+            document.addEventListener("contextmenu", function(e) {
+                e.preventDefault();
+                return false;
+            });
+        } else { //Versões antigas do IE
+            document.attachEvent("oncontextmenu", function(e) {
+                e = e || window.event;
+                e.returnValue = false;
+                return false;
+            });
+        }
+
     },
     singIn() {
 
@@ -66,11 +81,21 @@ let auth = {
                         senha: senha.value
                     })
                 })
-                .then(response => response.text())
+                .then(response => response.json())
                 .then(result => {
-                    const RESPONSE = JSON.parse(result)
-                    document.cookie = `token=${RESPONSE.token}`
-                    document.location.href = RESPONSE.url
+
+                    switch (result.status) {
+                        case 200:
+                            document.cookie = `token=${result.token}`
+                            document.location.href = result.url
+                            break;
+                    
+                        default:
+                            this.visoLogin()
+                            break;
+                    }
+                    
+                    
                     
                 })
                 .catch(error => console.log('error', error));
@@ -79,6 +104,10 @@ let auth = {
         })
 
 
+    },
+
+    visoLogin(){
+        alert('Usuario ou senha incorreto')
     },
 
     loading() {

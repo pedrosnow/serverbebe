@@ -1,7 +1,10 @@
+import { JwtPayload } from "jsonwebtoken"
+
 export type TokenProp = {
-    token: String
+    token: String,
+    tokenPayLoad: JwtPayload | string
 }
 
-export type TokenPlayload = {
-	isAdmin: boolean
+export type TokenPayload = {
+	isAdmin: boolean,
 }

@@ -443,6 +443,50 @@ template {
     transform: rotate(-10deg);
   }
 }
+.loader-olhos {
+  position: relative;
+  width: 108px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.loader-olhos::after, .loader-olhos::before {
+  content: "";
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+  background-color: #FFF;
+  background-image: radial-gradient(circle 14px, #0d161b 100%, transparent 0);
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  animation: eyeMove 10s infinite, blink 10s infinite;
+}
+
+@keyframes eyeMove {
+  0%, 10% {
+    background-position: 0px 0px;
+  }
+  13%, 40% {
+    background-position: -15px 0px;
+  }
+  43%, 70% {
+    background-position: 15px 0px;
+  }
+  73%, 90% {
+    background-position: 0px 15px;
+  }
+  93%, 100% {
+    background-position: 0px 0px;
+  }
+}
+@keyframes blink {
+  0%, 10%, 12%, 20%, 22%, 40%, 42%, 60%, 62%, 70%, 72%, 90%, 92%, 98%, 100% {
+    height: 48px;
+  }
+  11%, 21%, 41%, 61%, 71%, 91%, 99% {
+    height: 18px;
+  }
+}
 .container-login {
   width: 100%;
   height: 100%;
@@ -615,6 +659,39 @@ template {
   background-color: #603c12; /* color of the scroll thumb */
   border-radius: 20px; /* roundness of the scroll thumb */
   border: 3px solid #603c12; /* creates padding around scroll thumb */
+}
+.container-home-page .container-status {
+  display: flex;
+  background: #603c12;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 15px;
+  border-radius: 5px;
+}
+.container-home-page .container-status .container .titulo {
+  font-size: 30px;
+  color: #FFF;
+}
+.container-home-page .container-status .container .descricao {
+  color: #FFF;
+}
+.container-home-page .container-loading {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px;
+  background: #603c12;
+  border-radius: 5px;
+}
+.container-home-page .container-loading .container {
+  margin-left: 10px;
+}
+.container-home-page .container-loading .titulo {
+  font-size: 25px;
+  color: #fff;
+}
+.container-home-page .container-loading .descricao {
+  color: #fff;
 }
 
 .container-live {
