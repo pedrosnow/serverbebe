@@ -1,0 +1,28 @@
+
+<%- include('./layout/header') %>
+<h1>Gerador de Token</h1>
+<div class="card" id="card-gerador">
+    <div class="card-header">Gerador de Token</div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col">
+          <label>input</label>
+          <input type="text" class="form-control" placeholder="Digite algo para gerar o token">
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col">
+          <label>output</label>
+          <input type="text" class="form-control" disabled>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col">
+          <button class="btn btn-primary" style="width: 200px;">Gerar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%- include('./layout/footer') %>

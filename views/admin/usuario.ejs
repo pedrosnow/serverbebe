@@ -1,0 +1,49 @@
+
+
+<%- include('./layout/header') %>
+<h1>Usuario</h1>
+<div class="card" id="card-usuarios">
+  <div class="card-header">
+    Tabela de Usuario
+  </div>
+  <div class="card-body">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>acesso</th>
+          <th>nome</th>
+          <th>email</th>
+          <th>ação</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>766499</td>
+          <td>Pedro Henque Cruz Lima Silva</td>
+          <td>pedro6489@gmail.com</td>
+          <td>
+            <button class="btn btn-primary">acao</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card-footer clearfix">
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-end">
+        <li class="page-item disabled">
+          <a class="page-link" href="#" tabindex="-1">Previous</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item">
+          <a class="page-link" href="#">Next</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+<%- include('./layout/footer') %>

@@ -311,6 +311,10 @@ template {
   display: none;
 }
 
+h1 {
+  font-weight: 400;
+}
+
 @font-face {
   font-family: "Licorice-Regular";
   src: url("../font/Licorice-Regular.ttf") format("truetype");
@@ -323,6 +327,15 @@ template {
   font-weight: normal;
   font-style: normal;
 }
+.card-footer {
+  display: flex;
+  padding: 0px;
+  justify-content: flex-end;
+  align-items: center;
+  padding-top: 15px;
+  padding-right: 10px;
+}
+
 .container-modal {
   position: fixed;
   z-index: 5;
@@ -398,6 +411,60 @@ template {
   cursor: pointer;
   color: #603c12;
   font-size: 30px;
+}
+
+.header-admin {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 57px;
+  width: 100%;
+  background: rgb(255, 255, 255);
+  border-bottom: 1px solid #DEE2E6;
+}
+
+.aside-admin {
+  width: 250px;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: #272829;
+  padding: 0 5px;
+}
+.aside-admin .titulo {
+  color: #fff;
+  margin-top: 17px;
+  text-align: center;
+  font-size: 17px;
+}
+.aside-admin nav {
+  margin-top: 25px;
+}
+.aside-admin nav ul {
+  padding: 0;
+}
+.aside-admin nav ul a {
+  text-decoration: none;
+}
+.aside-admin nav ul li {
+  text-align: start;
+  width: 100%;
+  cursor: pointer;
+  color: #dbdbdb;
+  padding: 10px 0;
+  padding-left: 20px;
+  list-style: none;
+  border-radius: 5px;
+  margin-bottom: 1px;
+  font-weight: 600;
+}
+.aside-admin nav ul li:hover {
+  background: #1a1b1b;
+  color: #ffffff;
+}
+.aside-admin nav ul li span {
+  margin-right: 10px;
 }
 
 .loader {
@@ -722,4 +789,17 @@ template {
 .container-live #tutorial {
   width: 100%;
   height: 100%;
+}
+
+#card-gerador {
+  width: 40%;
+}
+
+.container-admin {
+  width: 100%;
+  height: 100%;
+  background: #F4F6F9;
+  padding-top: 50px;
+  padding-left: 280px;
+  padding-right: 30px;
 }/*# sourceMappingURL=style.css.map */

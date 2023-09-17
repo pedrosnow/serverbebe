@@ -1,6 +1,7 @@
 import jwt from "jsonwebtoken";
 import { Request, Response, NextFunction } from "express";
 import { TokenProp, TokenPayload } from "../@types/Token";
+import User from "../db/models/user";
 
 export const token = (
 	req: Request<{}, {}, TokenProp>,
@@ -32,7 +33,7 @@ export const token = (
 
 
 
-export const Tokenadmin = (
+export const Tokenadmin = async (
 	req: Request<{}, {}, TokenProp>,
 	res: Response,
 	next: NextFunction
@@ -46,18 +47,19 @@ export const Tokenadmin = (
 		try {
 			const response = jwt.verify(token, secret ? secret : "");
 			
-			const { isAdmin } = response as TokenPayload
+			const { isAdmin, id } = response as TokenPayload
 
 			// Verifique se o usuário é um administrador
 			const userIsAdmin = isAdmin; // Supondo que o campo seja chamado 'isAdmin'
 
-			if (userIsAdmin) {
-				// Permita o acesso apenas se o usuário for um administrador
-				next();
+			const resultDB = await User.findOne({where: {id: id, isAdmin: userIsAdmin}})
 
-			} else {
+			if(resultDB){
+				next();
+			}else{
 				res.status(403).json({ msg: 'Acesso não autorizado' });
 			}
+
 		} catch (error) {
 			res.redirect("/");
 		}
