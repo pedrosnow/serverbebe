@@ -22,8 +22,10 @@ let home = {
                     }
 
                     for(const row of result){
-                        container.append(this.video())
-                        console.log(row)
+                        let date = `${row.createdAt.split('T')[0].split('-')[2]}/${row.createdAt.split('T')[0].split('-')[1]}/${row.createdAt.split('T')[0].split('-')[0]}`
+                        let file = row.file
+                        container.append(this.video(date, file))
+                        
                     }
 
                 }, 1500);
@@ -63,7 +65,7 @@ let home = {
 
     },
 
-    video(){
+    video(date, file){
 
         let card, infoFile, containerInco, li, a
 
@@ -73,8 +75,10 @@ let home = {
         a = document.createElement('a')
         infoFile = document.createElement('div')
 
-        a.href = "#"
+        a.href = `/download/${file}`
+        a.target = "blank"
 
+        infoFile.innerHTML = date
         infoFile.classList.add('info-file')
         li.classList.add('icon', 'fas', 'fa-cloud-download-alt')
         containerInco.classList.add('container-incon')

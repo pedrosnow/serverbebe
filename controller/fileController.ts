@@ -72,24 +72,26 @@ export const sftpPut = (req:Request, res:Response) => {
 
 export const sftdownload = async (req:Request, res:Response) => {
 
+    const {acesso} = req.body.tokenPayLoad
+    const { file } = req.params
 
    try {
 
-        let arquivoNome = 'xKqYeQVQd.mkv'
+        let arquivoNome = file
         
         await sftp.connect(config);
 
-        await sftp.get('udi_meubb/766499/xKqYeQVQd.mkv', 'xKqYeQVQd.mkv');
+        await sftp.get(`udi_meubb/${acesso}/${file}`, file);
 
         res.setHeader('Content-disposition', `attachment; filename=${arquivoNome}`);
         res.setHeader('Content-type', 'video/x-matroska');
 
         // Transmita o arquivo para o cliente
-        const fileStream = fs.createReadStream('xKqYeQVQd.mkv');
+        const fileStream = fs.createReadStream(file);
         fileStream.pipe(res);
 
         // Exclua o arquivo local após o download, se necessário
-        fs.unlinkSync('xKqYeQVQd.mkv');
+        fs.unlinkSync(file);
 
     
    } catch (error) {

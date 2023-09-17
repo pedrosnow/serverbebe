@@ -1,0 +1,50 @@
+.aside-admin{
+    width: 250px;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: #272829;
+    padding: 0 5px;
+
+    .titulo{
+        color: #fff;
+        margin-top: 17px;
+        text-align: center;
+        font-size: 17px;
+    }
+
+    nav{
+        margin-top: 25px;
+        // background: red;
+        ul{
+            a{
+                text-decoration: none;
+            }
+            padding: 0;
+            li{
+                text-align: start;
+                width: 100%;
+                cursor: pointer;
+                color:  #dbdbdb;
+                padding: 10px 0;
+                padding-left: 20px;
+                list-style: none;
+                // background: #3d3e3f;
+                border-radius: 5px;
+                // border-radius: 10px;
+                margin-bottom: 1px;
+                font-weight: 600;
+
+                &:hover{
+                    background: #1a1b1b;
+                    color: #ffffff;
+                }
+
+                span{
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+}

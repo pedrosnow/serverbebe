@@ -6,6 +6,7 @@ type FileAttibutes = {
   id: number,
   file:string,
   acesso:string,
+  userid:number,
   createdAt: Date,
   updatedAt: Date,
 }
@@ -17,6 +18,7 @@ class File extends Model<FileAttibutes, FileCreationAttributes> {
   declare id:number;
   declare file:string;
   declare acesso:string;
+  declare userid:number;
   declare createdAt: Date;
   declare updatedAt: Date;
 }
@@ -33,6 +35,9 @@ File.init({
     },
     acesso: {
       type: DataTypes.STRING
+    },
+    userid: {
+      type: DataTypes.INTEGER
     },
     createdAt: {
       type: DataTypes.DATE
