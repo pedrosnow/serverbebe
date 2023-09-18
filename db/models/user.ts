@@ -1,6 +1,5 @@
 import { Model, DataTypes, Optional } from "sequelize";
 import { sequelize } from "../../config/databases";
-import File from "./file";
 
 type UserAttributes = {
 	id: number;
