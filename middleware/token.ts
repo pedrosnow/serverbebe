@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 import { Request, Response, NextFunction } from "express";
-import { TokenProp, TokenPayload } from "../@types/Token";
+import { TokenProp, TokenPayload, TokenServerProp } from "../@types/TokenProp";
 import User from "../db/models/user";
 
 export const token = (
@@ -65,3 +65,26 @@ export const Tokenadmin = async (
 		}
 	}
 };
+
+export const TokenServer = (req:Request<{},{}, TokenServerProp>, res:Response, next: NextFunction) =>{
+
+	const { authorization } = req.headers
+	const secret = process.env.SECRET;
+
+	if (!authorization) {
+		res.redirect("/");
+	} else {
+		try {
+			const response = jwt.verify(authorization, secret ? secret : "");
+			if (response) {
+				next();				
+			} else {
+				res.redirect("/");
+			}
+		} catch (error) {
+			res.redirect("/");
+		}
+	}
+
+
+}

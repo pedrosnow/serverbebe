@@ -1,12 +1,11 @@
 import User from "../db/models/user";
-import { SendProps } from "../@types/SendProps";
 import { Request, Response } from "express";
 import bcrypt from 'bcrypt'
 import request from "request";
 import jwt from 'jsonwebtoken'
 
 export const sendMensage = async (
-	req: Request<{}, {}, SendProps>,
+	req: Request,
 	res: Response
 ) => {
 

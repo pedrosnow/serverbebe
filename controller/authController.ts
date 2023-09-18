@@ -1,4 +1,4 @@
-import { AuthProps } from "../@types/auth";
+import { AuthProps } from "../@types/AuthProp";
 import { Request, Response } from "express";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";

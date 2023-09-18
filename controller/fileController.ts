@@ -11,7 +11,7 @@ const sftp = new Client()
 
 export const file = (req:Request, res:Response) => {
 
-    const { chave, pacienteid } = req.body
+    const { chave, serverStream } = req.body
      
 
      const currentDir = __dirname;
@@ -22,7 +22,7 @@ export const file = (req:Request, res:Response) => {
 
     axios({
         method: 'post',
-        url: 'http://127.0.0.1:5000/download-video',  // Substitua pelo URL correto do servidor Flask
+        url: `${serverStream}/download-video`,  // Substitua pelo URL correto do servidor Flask
         responseType: 'stream',
         data:{
             chave: chave
@@ -120,6 +120,23 @@ export const sftpList = async (req:Request, res:Response) => {
         
         throw new Error('Erro em trazer os dados')
 
+    }
+
+}
+
+export const fileInsert = async (req:Request, res:Response) => {
+
+    const { acesso, file } = req.body
+    try {
+        const fileResponse = File.create({
+            acesso: acesso,
+            file: file,
+            createdAt: new Date(),
+            updatedAt: new Date(),
+        })
+        res.status(200).json({msg: "Operação realizado com sucesso"})
+    } catch (error) {
+        throw Error('Erro ao inserir dados')
     }
 
 }
