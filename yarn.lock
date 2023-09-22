@@ -594,11 +594,6 @@ buffer-from@^1.0.0:
   resolved "https://registry.npmjs.org/buffer-from/-/buffer-from-1.1.2.tgz"
   integrity sha512-E+XQCRwSbaaiChtv6k6Dwgc+bx+Bs6vuKJHHl5kox/BaKbhiXzqQOwK4cO22yElGp2OCmjwVhT3HmxgyPGnJfQ==
 
-buildcheck@~0.0.6:
-  version "0.0.6"
-  resolved "https://registry.npmjs.org/buildcheck/-/buildcheck-0.0.6.tgz"
-  integrity sha512-8f9ZJCUXyT1M35Jx7MkBgmBMo3oHTTBIPLiY9xyL0pl3T5RwcPEY8cUHr5LBNfu/fk6c2T4DJZuVM/8ZZT2D2A==
-
 bytes@3.1.2:
   version "3.1.2"
   resolved "https://registry.npmjs.org/bytes/-/bytes-3.1.2.tgz"
@@ -795,14 +790,6 @@ core-util-is@1.0.2:
   version "1.0.2"
   resolved "https://registry.npmjs.org/core-util-is/-/core-util-is-1.0.2.tgz"
   integrity sha512-3lqz5YjWTYnW6dlDa5TLaTCcShfar1e40rmcJVwCBJC6mWlFuj0eCHIElmG1g5kyuJ/GD+8Wn4FFCcz4gJPfaQ==
-
-cpu-features@~0.0.8:
-  version "0.0.9"
-  resolved "https://registry.npmjs.org/cpu-features/-/cpu-features-0.0.9.tgz"
-  integrity sha512-AKjgn2rP2yJyfbepsmLfiYcmtNn/2eUvocUyM/09yB0YDiz39HteK/5/T4Onf0pmdYDMgkBoGvRLvEguzyL7wQ==
-  dependencies:
-    buildcheck "~0.0.6"
-    nan "^2.17.0"
 
 create-require@^1.1.0:
   version "1.1.1"
@@ -1378,6 +1365,11 @@ has@^1.0.3:
   integrity sha512-f2dvO0VU6Oej7RkWJGrehjbzMAjFp5/VKPp5tTpWIV4JHHZK1/BxbFRtf/siA2SWTe09caDmVtYYzWEIbBS4zw==
   dependencies:
     function-bind "^1.1.1"
+
+helmet-csp@^3.4.0:
+  version "3.4.0"
+  resolved "https://registry.npmjs.org/helmet-csp/-/helmet-csp-3.4.0.tgz"
+  integrity sha512-a+YgzWw6dajqhQfb6ktxil0FsQuWTKzrLSUfy55dxS8fuvl1jidTIMPZ2udN15mjjcpBPgTHNHGF5tyWKYyR8w==
 
 helmet@^7.0.0:
   version "7.0.0"
@@ -2054,11 +2046,6 @@ named-placeholders@^1.1.3:
   integrity sha512-eLoBxg6wE/rZkJPhU/xRX1WTpkFEwDJEN96oxFrTsqBdbT5ec295Q+CoHrL9IT0DipqKhmGcaZmwOt8OON5x1w==
   dependencies:
     lru-cache "^7.14.1"
-
-nan@^2.17.0:
-  version "2.17.0"
-  resolved "https://registry.npmjs.org/nan/-/nan-2.17.0.tgz"
-  integrity sha512-2ZTgtl0nJsO0KQCjEpxcIr5D+Yv90plTitZt9JBfQvVJDS5seMl3FOvsh3+9CoYWXf/1l5OaZzzF6nDm4cagaQ==
 
 negotiator@^0.6.2, negotiator@0.6.3:
   version "0.6.3"

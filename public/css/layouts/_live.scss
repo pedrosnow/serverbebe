@@ -12,6 +12,10 @@
 		background: #603c12;
 		border: none;
 		border-radius: 100px;
+
+		@media (max-windth:$ExtraLargeDevices) {
+			
+		}
 	}
 	#logo {
 		top: 0px;

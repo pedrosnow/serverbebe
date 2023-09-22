@@ -1,13 +1,27 @@
-import express, { Express} from 'express'
+import express, { Express } from 'express'
 import cookieParser from 'cookie-parser';
-import helmet from 'helmet'
 import path from 'path'
 import 'dotenv/config'
 import { router } from './router'
 import expressEjsLayouts from 'express-ejs-layouts'
+import helmetCsp from 'helmet-csp'
 
 
 const app: Express = express()
+
+// helmet CSP setup
+// app.use(
+// helmetCsp({
+//     directives: {
+//         defaultSrc: ["'self'", "http://localhost"],
+//         fontSrc: ["'self'", "data:"],
+//         styleSrc: ["'self'", "'unsafe-inline'"],
+//         mediaSrc: ["'self'", "http://localhost", "blob:"], // Permita "blob:" para mídia
+//         scriptSrc: ["'self'", "http://localhost:3000"],
+//         workerSrc: ["'self'", "blob:"],
+//     },
+//     })
+// );
 
 app.use(express.json())
 
@@ -15,7 +29,7 @@ app.use(express.json())
 app.use(cookieParser())
 
 // helmet setup
-app.use(helmet())
+// app.use(helmet())
 
 // route setup
 app.use(router)
@@ -23,8 +37,8 @@ app.use(router)
 // EJS setup
 app.use(expressEjsLayouts)
 
-app.use('/static', express.static(__dirname + '/public'));
-app.use('/node', express.static('./node_modules'));
+app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/node_modules'));
 
 // Setting the root path for views directory
 app.set('views', path.join(__dirname, 'views'));
